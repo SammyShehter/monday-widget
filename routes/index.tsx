@@ -19,7 +19,7 @@ const client = new MongoClient();
 // Connect using srv url
 try {
   await client.connect(
-    "mongodb+srv://worker:dEJMfMYK1xWeH9cg@cluster0.rn6v9.mongodb.net/?authMechanism=SCRAM-SHA-1",
+    "mongodb+srv://<user>:<password>@<mongourl>/?authMechanism=SCRAM-SHA-1",
   );
   const db = client.database("ZeroHero")
   const tips = db.collection<TipsSchema>("Tips")

@@ -16,7 +16,7 @@ export default function Card(props: CardProps) {
     
     return (
             <div
-                class={tw`flex justify-center items-center flex-col rounded-md p-4 mx-4 max-w-sm bg-white overflow-hidden ${viewed ? 'hidden': ''}`}
+                class={tw`flex justify-center items-center flex-col rounded-md p-4 overflow-hidden ${viewed ? 'hidden': ''}`}
             >
               <Tip/>
                 <button

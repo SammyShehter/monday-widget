@@ -6,9 +6,9 @@
 
 import { InnerRenderFunction, RenderContext, start } from "$fresh/server.ts";
 import manifest from "./fresh.gen.ts";
-
 import { config, setup } from "@twind";
 import { virtualSheet } from "twind/sheets";
+import { setTodaysTip, tips, updateTips } from "./utils/tips.ts";
 
 const sheet = virtualSheet();
 sheet.reset();
@@ -23,4 +23,9 @@ function render(ctx: RenderContext, render: InnerRenderFunction) {
   ctx.state.set("twind", newSnapshot);
 }
 
+async function _init() {
+  await updateTips(tips)
+  setTodaysTip()
+}
+_init()
 await start(manifest, { render, port:9000 });
